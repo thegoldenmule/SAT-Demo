@@ -16,15 +16,17 @@ public static class CollisionDetector
     /// <param name="a"></param>
     /// <param name="b"></param>
     /// <returns></returns>
-    public static bool IsCollision(ICollidable a, ICollidable b)
+    public static bool IsCollision(
+        ICollidable a,
+        ICollidable b)
     {
         Vector3[] aAxes = a.Axes;
         Vector3[] bAxes = b.Axes;
 
         if (DrawGizmos)
         {
-            DrawAxes(aAxes);
-            DrawAxes(bAxes);
+            DrawAxes(aAxes, Color.red);
+            DrawAxes(bAxes, Color.green);
         }
 
         int aAxesLength = aAxes.Length;
@@ -137,11 +139,12 @@ public static class CollisionDetector
     /// Draws axes through the origin.
     /// </summary>
     /// <param name="axes"></param>
-    private static void DrawAxes(Vector3[] axes)
+    /// <param name="color"></param>
+    private static void DrawAxes(Vector3[] axes, Color color)
     {
         const int LENGTH = 100;
 
-        Gizmos.color = new Color(0.2f, 0.2f, 0.2f, 0.5f);
+        Gizmos.color = new Color(0.2f, 0.2f, 0.2f, 0.5f) * color;
         for (int i = 0, len = axes.Length; i < len; i++)
         {
             Gizmos.DrawLine(-LENGTH / 2f * axes[i], LENGTH / 2f * axes[i]);

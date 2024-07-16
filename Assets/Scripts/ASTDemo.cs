@@ -24,20 +24,8 @@ public class ASTDemo : MonoBehaviour
     /// </summary>
     private void Awake()
     {
-        _cubeA.Initialize(
-            Vector3.zero,
-            Random.Range(1f, 10f),
-            Quaternion.Euler(
-                Random.Range(0f, 180f),
-                Random.Range(0f, 180f),
-                Random.Range(0f, 180f)));
-        _cubeB.Initialize(
-            Random.onUnitSphere * 10f,
-            1f,
-            Quaternion.Euler(
-                Random.Range(0f, 180f),
-                Random.Range(0f, 180f),
-                Random.Range(0f, 180f)));
+        _cubeA.Initialize();
+        _cubeB.Initialize();
     }
 
     /// <summary>

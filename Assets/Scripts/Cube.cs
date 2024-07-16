@@ -41,20 +41,10 @@ public class Cube : MonoBehaviour
     }
 
     /// <summary>
-    /// Initializes the cube with transform information.
+    /// Initializes the cube.
     /// </summary>
-    /// <param name="position"></param>
-    /// <param name="scale"></param>
-    /// <param name="rotation"></param>
-    public void Initialize(
-        Vector3 position,
-        float scale,
-        Quaternion rotation)
+    public void Initialize()
     {
-        transform.position = position;
-        transform.localScale = Vector3.one * scale;
-        transform.rotation = rotation;
-
         Collider = new CollisionCube(gameObject);
     }
 
@@ -63,7 +53,7 @@ public class Cube : MonoBehaviour
     /// </summary>
     private void ApplyColor()
     {
-        renderer.material.SetColor(
+        GetComponent<Renderer>().material.SetColor(
             "_Color",
             Hit ? Color.red : Color.white);
     }
